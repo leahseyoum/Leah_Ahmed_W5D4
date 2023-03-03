@@ -9,21 +9,30 @@
 #  updated_at :datetime         not null
 #
 class Enrollment < ApplicationRecord
-    has_many :course,
+    belongs_to :course,
         primary_key: :id,
         foreign_key: :course_id,
         class_name: :Course 
 
-    has_many :user,
+    belongs_to :student,
         primary_key: :id,
-        foreign_key: :users_id,
+        foreign_key: :student_id,
         class_name: :User
 
     belongs_to :user,
         primary_key: :id,
         foreign_key: :enrollments_id,
         class_name: :User
+    
+    # belongs_to :course,
+    #     primary_key: :id,
+    #     foreign_key: :courses_id,
+    #     class_name: :Course
 
-        #we need enrolled courses for every student
+    # belongs_to :course,
+    #     primary_key: :id,
+    #     foreign_key: :students_id,
+    #     class_name: :Course
+        
 
 end
